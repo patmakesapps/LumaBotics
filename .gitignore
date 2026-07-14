@@ -1,0 +1,14 @@
+# Python bytecode cache -- auto-generated on every import, never source
+__pycache__/
+*.pyc
+
+# virtual environments, if you make one later
+.venv/
+venv/
+
+# editor state
+.vscode/
+
+# OS clutter
+Thumbs.db
+.DS_Store
