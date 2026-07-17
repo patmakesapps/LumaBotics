@@ -1,13 +1,26 @@
-# Python bytecode cache -- auto-generated on every import, never source
+# Python-generated files
 __pycache__/
-*.pyc
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
 
-# virtual environments, if you make one later
+# Virtual environments and local configuration
 .venv/
 venv/
+.env
+.env.*
+!.env.example
 
-# editor state
+# Editor state
 .vscode/
+.idea/
+*.swp
+
+# Workspace-local tooling and alternate Git metadata
+.agents/
+.codex/
+.repo-git/
 
 # OS clutter
 Thumbs.db

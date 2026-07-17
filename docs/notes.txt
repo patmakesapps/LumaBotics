@@ -1,3 +1,30 @@
-brain.py is the personality file — this is where most of the fun lives. The 220 and 450 are the reflex distances (panic threshold and caution threshold). The 0.7 / 0.35 / -0.4 / 0.55 are cruise, creep, reverse, and pivot speeds. t + 0.6 is how long it backs up; random.uniform(0.5, 1.4) is the turn-length dice. Every one of these survives to the physical robot, so tuning them now is real work, not play — try a timid robot (creep at 0.2, panic at 350) versus a reckless one (cruise 1.0, panic at 120) and watch the character change.
-sim.py is the world and body file — the walls list (add interior segments and build furniture: a couch is just four segments), start pose x, y, theta, TRACK for chassis width, dt, and the loop count. Adding a second wall segment jutting into the room is the best next experiment, because corners are where cheap avoidance logic gets embarrassed — see if you can build a wall pocket that traps it.
-sensor.py — hands off, deliberately. It's certified by its four tests, and it models physics, not choices; there's nothing to tune. If you ever do edit it, the deal is: rerun python sensor.py before trusting anything downstream.
+# Simulation Tuning Notes
+
+## `brain.py` — Personality
+
+This is where most of the fun lives.
+
+- `220` and `450` are the reflex distances: panic and caution thresholds.
+- `0.7`, `0.35`, `-0.4`, and `0.55` are cruise, creep, reverse, and pivot speeds.
+- `t + 0.6` is how long it backs up.
+- `random.uniform(0.5, 1.4)` is the turn-length dice.
+
+Every one of these survives to the physical robot, so tuning them now is real
+work, not play. Try a timid robot (creep at `0.2`, panic at `350`) versus a
+reckless one (cruise at `1.0`, panic at `120`) and watch the character change.
+
+## `sim.py` — World and Body
+
+Tune the walls list, start pose (`x`, `y`, `theta`), `TRACK` chassis width,
+`dt`, and loop count. Add interior wall segments to build furniture—a couch is
+just four segments.
+
+Adding a second wall segment jutting into the room is the best next experiment.
+Corners are where cheap avoidance logic gets embarrassed. See if you can build
+a wall pocket that traps it.
+
+## `sensor.py` — Hands Off
+
+Leave this file alone deliberately. Its four tests certify it, and it models
+physics, not choices; there is nothing to tune. If you ever edit it, rerun
+`python sensor.py` before trusting anything downstream.
